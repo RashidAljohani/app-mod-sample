@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app-mod-sample
+  name: app-mod-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-mod-sample
+  template:
+    metadata:
+      labels:
+        app: app-mod-sample
+    spec:
+      containers:
+        - image: IMAGE_REFERENCE
+          imagePullPolicy: Always
+          name: app-mod-sample
+          ports:
+            - containerPort: 9080
+              protocol: TCP
